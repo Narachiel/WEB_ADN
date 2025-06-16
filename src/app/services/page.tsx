@@ -345,30 +345,26 @@ export default function ServicesPage() {
       ]
     }
   };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen particle-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-stable-particles">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+        <div className="text-center mb-16">          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient">
             Cybersecurity Services
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-secondary max-w-3xl mx-auto">
             Comprehensive security solutions to protect your organization against evolving cyber threats
           </p>
         </div>
 
         {/* Service Categories Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {Object.keys(categories).map((category) => (
-            <button
+          {Object.keys(categories).map((category) => (            <button
               key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 
+              onClick={() => setActiveCategory(category)}              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 gradient-outline-button text-white
                 ${activeCategory === category
-                  ? 'bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 text-white shadow-lg scale-105'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+                  ? 'shadow-lg scale-105'
+                  : 'opacity-70 hover:opacity-100'}`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
@@ -377,7 +373,7 @@ export default function ServicesPage() {
 
         {/* Category Overview */}
         <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700 mb-12">
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+          <h2 className="text-3xl font-bold mb-4 text-brand-gradient">
             {categories[activeCategory].title}
           </h2>
           <p className="text-gray-300 text-lg">
@@ -389,7 +385,7 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {categories[activeCategory].services.map((service, index) => (
             <div key={index} className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-colors duration-300">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+              <h3 className="text-2xl font-bold mb-4 text-brand-gradient">
                 {service.title}
               </h3>
               <p className="text-gray-300 mb-6">{service.description}</p>
@@ -447,7 +443,7 @@ export default function ServicesPage() {
 
         {/* Pricing Tiers */}
         <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+          <h2 className="text-3xl font-bold text-center mb-12 text-brand-gradient">
             Service Packages
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -466,7 +462,7 @@ export default function ServicesPage() {
                     </span>
                   </div>
                 )}
-                <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+                <h3 className="text-2xl font-bold mb-2 text-brand-gradient">
                   {tier.name}
                 </h3>
                 <p className="text-gray-400 mb-4">{tier.description}</p>
@@ -480,11 +476,7 @@ export default function ServicesPage() {
                       <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
-                </ul>
-                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 
-                  ${tier.highlight
-                    ? 'bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 text-white shadow-lg hover:shadow-cyan-500/20'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}>
+                </ul>                <button className="w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 gradient-outline-button text-white">
                   Get Started
                 </button>
               </div>

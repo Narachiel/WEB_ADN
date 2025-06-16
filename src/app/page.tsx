@@ -9,54 +9,48 @@ export default function Home() {
   const features = [
     {
       title: "Advanced Threat Protection",
-      description: "Stay ahead of cyber threats with our state-of-the-art security solutions and real-time monitoring.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      description: "Stay ahead of cyber threats with our state-of-the-art security solutions and real-time monitoring.",      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
         </svg>
       ),
     },
     {
       title: "24/7 Security Operations",
-      description: "Round-the-clock monitoring and incident response to protect your business at all times.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      description: "Round-the-clock monitoring and incident response to protect your business at all times.",      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
     },
     {
       title: "Compliance & Governance",
-      description: "Meet industry regulations and standards with our comprehensive compliance solutions.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      description: "Meet industry regulations and standards with our comprehensive compliance solutions.",      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
     },
     {
       title: "Cloud Security",
-      description: "Secure your cloud infrastructure with our specialized cloud security solutions and best practices.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      description: "Secure your cloud infrastructure with our specialized cloud security solutions and best practices.",      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
         </svg>
       ),
     },
     {
       title: "Security Training",
-      description: "Empower your team with comprehensive security awareness training and phishing simulations.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      description: "Empower your team with comprehensive security awareness training and phishing simulations.",      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
         </svg>
       ),
     },
     {
       title: "Incident Response",
-      description: "Swift and effective incident response with our expert team and battle-tested procedures.",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      description: "Swift and effective incident response with our expert team and battle-tested procedures.",      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
@@ -123,21 +117,19 @@ export default function Home() {
       description: "Stay informed about the latest cybersecurity threats and how to protect against them.",
       date: "2024-01-05",
       readTime: "6 min read"
-    }
-  ];
-
+    }  ];
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+    <div className="bg-stable-particles">
       <Hero />
       
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-stable-subtle-particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]">
               Comprehensive Cybersecurity Solutions
             </h2>
-            <p className="mt-4 text-xl text-gray-300">
+            <p className="mt-4 text-xl text-secondary">
               Protecting your digital assets with cutting-edge technology and expertise
             </p>
           </div>
@@ -153,44 +145,40 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Statistics Section */}
-      <section className="py-20">
+      </section>      {/* Statistics Section */}
+      <section className="py-20 particle-background-minimal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
+          <div className="cyber-card rounded-2xl p-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {statistics.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+                  <div className="text-3xl sm:text-4xl font-bold text-brand-gradient">
                     {stat.prefix}{stat.number}{stat.suffix}
                   </div>
-                  <div className="mt-2 text-gray-300">{stat.label}</div>
+                  <div className="mt-2 text-secondary">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20">
+      </section>      {/* Testimonials Section */}
+      <section className="py-20 bg-stable-particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
               What Our Clients Say
             </h2>
-            <p className="mt-4 text-xl text-gray-300">
+            <p className="mt-4 text-xl text-secondary">
               Trusted by leading organizations worldwide
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
-                <blockquote className="text-gray-300 mb-6">{testimonial.quote}</blockquote>
+              <div key={index} className="cyber-card rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-300">
+                <blockquote className="text-secondary mb-6">{testimonial.quote}</blockquote>
                 <div>
-                  <div className="font-semibold text-cyan-400">{testimonial.author}</div>
+                  <div className="font-semibold text-brand-blue">{testimonial.author}</div>
                   <div className="text-sm text-gray-400">{testimonial.position}</div>
                   <div className="text-sm text-gray-500">{testimonial.company}</div>
                 </div>
@@ -198,76 +186,70 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section className="py-20">
+      </section>      {/* Certifications Section */}
+      <section className="py-20 particle-background-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
               Industry Recognition
             </h2>
-            <p className="mt-4 text-xl text-gray-300">
+            <p className="mt-4 text-xl text-secondary">
               Certified excellence in cybersecurity
             </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
-              <div key={index} className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700 text-center">
-                <div className="text-xl font-bold text-cyan-400 mb-2">{cert.name}</div>
-                <div className="text-sm text-gray-300">{cert.description}</div>
+              <div key={index} className="cyber-card rounded-2xl p-6 text-center">
+                <div className="text-xl font-bold text-brand-blue mb-2">{cert.name}</div>
+                <div className="text-sm text-secondary">{cert.description}</div>
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Technology Partners Section */}
-      <section className="py-20">
+      </section>      {/* Technology Partners Section */}
+      <section className="py-20 bg-stable-subtle-particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
               Technology Partners
             </h2>
-            <p className="mt-4 text-xl text-gray-300">
+            <p className="mt-4 text-xl text-secondary">
               Working with industry leaders to deliver excellence
             </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {partners.map((partner, index) => (
-              <div key={index} className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700 text-center">
-                <div className="text-xl font-bold text-cyan-400 mb-2">{partner.name}</div>
-                <div className="text-sm text-gray-300">{partner.type}</div>
+              <div key={index} className="cyber-card rounded-2xl p-6 text-center">
+                <div className="text-xl font-bold text-brand-blue mb-2">{partner.name}</div>
+                <div className="text-sm text-secondary">{partner.type}</div>
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Latest Insights Section */}
-      <section className="py-20">
+      </section>      {/* Latest Insights Section */}
+      <section className="py-20 particle-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold sm:text-4xl bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
               Latest Insights
             </h2>
-            <p className="mt-4 text-xl text-gray-300">
+            <p className="mt-4 text-xl text-secondary">
               Stay informed with our cybersecurity expertise
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {insights.map((insight, index) => (
-              <div key={index} className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+              <div key={index} className="cyber-card rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-300">
+                <h3 className="text-xl font-bold mb-3 text-brand-gradient">
                   {insight.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{insight.description}</p>
+                <p className="text-secondary mb-4">{insight.description}</p>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{new Date(insight.date).toLocaleDateString()}</span>
-                  <span className="text-cyan-400">{insight.readTime}</span>
+                  <span className="text-muted">{new Date(insight.date).toLocaleDateString()}</span>
+                  <span className="text-brand-blue">{insight.readTime}</span>
                 </div>
               </div>
             ))}
@@ -284,9 +266,8 @@ export default function Home() {
         }}
         secondaryButton={{
           text: "Explore Solutions",
-          href: "/solutions"
-        }}
+          href: "/solutions"        }}
       />
-    </main>
+    </div>
   );
 }

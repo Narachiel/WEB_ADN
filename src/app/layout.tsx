@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Ambara Digital Nusantara - Cybersecurity Solutions",
   description: "Leading provider of cybersecurity solutions and services in Indonesia",
   keywords: "cybersecurity, security solutions, IT security, Indonesia, enterprise security",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
@@ -23,12 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="antialiased min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
-        {/* Enhanced gradient overlay */}
-        <div className="fixed inset-0 bg-gradient-to-br from-sky-blue/5 via-white/3 to-sky-orange/5 pointer-events-none" />
-        
-        {/* Cyber Animation Container */}
-        <div className="cyber-container">
+      <body className={`${inter.className} antialiased min-h-screen cyber-bg-primary`}>        {/* Enhanced gradient overlay */}
+        <div className="hidden sm:block fixed inset-0 bg-gradient-to-br from-sky-blue/5 via-white/3 to-sky-orange/5 pointer-events-none" />
+          {/* Cyber Animation Container */}
+        <div className="cyber-container hidden sm:block">
           {/* Floating cyber particles */}
           <div className="cyber-particle gradient-primary" style={{ top: '20%', left: '10%', animationDelay: '0s' }} />
           <div className="cyber-particle gradient-primary-reverse" style={{ top: '60%', left: '80%', animationDelay: '-2s' }} />
@@ -50,11 +49,9 @@ export default function RootLayout({
           <div className="cyber-shield gradient-primary animate-gradient-scale" style={{ top: '30%', left: '20%', animationDelay: '0s' }} />
           <div className="cyber-shield gradient-primary-reverse animate-gradient-scale" style={{ top: '70%', left: '70%', animationDelay: '-2s' }} />
           <div className="cyber-shield gradient-primary animate-gradient-scale" style={{ top: '20%', left: '80%', animationDelay: '-4s' }} />
-        </div>
-
-        <div className="relative z-10">
+        </div>        <div className="relative z-10">
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main>{children}</main>
           <Footer />
         </div>
       </body>

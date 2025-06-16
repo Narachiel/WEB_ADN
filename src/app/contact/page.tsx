@@ -68,13 +68,12 @@ export default function ContactPage() {
       )
     },
   ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+    <div className="min-h-screen particle-background">
       {/* Hero Section */}
-      <div className="py-20">
+      <div className="py-20 bg-stable-particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient">
             Contact Us
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -83,11 +82,11 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-stable-subtle-particles">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
-            <h2 className="text-2xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-2xl font-bold mb-8 text-brand-gradient">
               Send us a message
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -157,12 +156,10 @@ export default function ContactPage() {
                   className="mt-1 block w-full rounded-lg bg-gray-900/50 border border-gray-700 text-gray-300 px-4 py-2.5 focus:border-cyan-500 focus:ring-cyan-500 focus:ring-1"
                   required
                 />
-              </div>
-
-              <button
+              </div>              <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 px-6 rounded-lg font-semibold bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 text-white hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 disabled:opacity-50"
+                className="w-full py-3 px-6 rounded-lg font-semibold gradient-outline-button text-white hover:shadow-lg transition-all duration-300 disabled:opacity-50"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -177,7 +174,7 @@ export default function ContactPage() {
 
           {/* Office Locations */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-2xl font-bold text-brand-gradient">
               Our Offices
             </h2>
             <div className="grid gap-8">

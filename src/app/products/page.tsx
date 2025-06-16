@@ -86,13 +86,12 @@ export default function ProductsPage() {
   const filteredProducts = activeCategory === 'all' 
     ? products 
     : products.filter(product => product.category === activeCategory);
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+    <div className="min-h-screen particle-background">
       {/* Hero Section */}
-      <div className="py-20">
+      <div className="py-20 bg-stable-particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient">
             Security Products
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -104,14 +103,12 @@ export default function ProductsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map(category => (
-            <button
+          {categories.map(category => (            <button
               key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 
+              onClick={() => setActiveCategory(category.id)}              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 gradient-outline-button text-white
                 ${activeCategory === category.id
-                  ? 'bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 text-white shadow-lg scale-105'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+                  ? 'shadow-lg scale-105'
+                  : 'opacity-70 hover:opacity-100'}`}
             >
               {category.name}
             </button>
@@ -135,7 +132,7 @@ export default function ProductsPage() {
                 />
               </div>
 
-              <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+              <h2 className="text-2xl font-bold mb-4 text-brand-gradient">
                 {product.name}
               </h2>
               
@@ -155,16 +152,14 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="flex space-x-4">
+              </div>              <div className="flex space-x-4">
                 <button 
                   onClick={() => setActiveProduct(product.id)}
-                  className="flex-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
+                  className="flex-1 gradient-outline-button text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Learn More
                 </button>
-                <button className="flex-1 bg-gray-700 text-gray-300 px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all duration-300">
+                <button className="flex-1 gradient-outline-button text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">
                   Request Demo
                 </button>
               </div>
@@ -175,7 +170,7 @@ export default function ProductsPage() {
         {/* Additional Info Section */}
         <div className="mt-16">
           <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+            <h3 className="text-2xl font-bold mb-6 text-brand-gradient">
               Why Choose Our Products?
             </h3>
             <div className="grid md:grid-cols-3 gap-8">

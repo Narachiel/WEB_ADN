@@ -44,9 +44,18 @@ export default function Navbar() {
 
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex justify-between items-center">
-          {/* Logo */}          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]">
+        <div className="flex justify-between items-center">          {/* Logo */}
+          <Link 
+            href="/" 
+            className="flex items-center space-x-2 group"
+            onMouseEnter={() => setHoveredItem('logo')}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <span className={`text-xl font-bold transition-all duration-300 ${
+              hoveredItem === 'logo'
+                ? 'text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]'
+                : 'text-white neon-text-white'
+            }`}>
               Ambara Digital Nusantara
             </span>
           </Link>
@@ -70,10 +79,9 @@ export default function Navbar() {
                   hoveredItem === item.label ? 'scale-x-100' : 'scale-x-0'
                 }`} />
               </Link>
-            ))}
-            <Link
+            ))}            <Link
               href="/contact"
-              className="gradient-button px-6 py-2 rounded-lg text-white font-medium shadow-lg hover:shadow-xl"
+              className="gradient-primary-button px-6 py-2 rounded-lg text-white font-medium shadow-lg hover:shadow-xl"
             >
               Contact Us
             </Link>
@@ -125,10 +133,9 @@ export default function Navbar() {
                 >
                   {item.label}
                 </Link>
-              ))}
-              <Link
+              ))}              <Link
                 href="/contact"
-                className="block gradient-button px-4 py-2 rounded-lg text-white font-medium text-center"
+                className="block gradient-primary-button px-4 py-2 rounded-lg text-white font-medium text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us

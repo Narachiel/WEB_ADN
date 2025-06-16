@@ -311,12 +311,11 @@ export default function SolutionsPage() {
       ]
     }
   };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen particle-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-stable-particles">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">
+          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient">
             Industry-Specific Solutions
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -326,14 +325,12 @@ export default function SolutionsPage() {
 
         {/* Industry Selection */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {Object.keys(industries).map((industry) => (
-            <button
+          {Object.keys(industries).map((industry) => (            <button
               key={industry}
-              onClick={() => setActiveIndustry(industry)}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 
+              onClick={() => setActiveIndustry(industry)}              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 gradient-outline-button text-white
                 ${activeIndustry === industry
-                  ? 'bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 text-white shadow-lg scale-105'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+                  ? 'shadow-lg scale-105'
+                  : 'opacity-70 hover:opacity-100'}`}
             >
               {industry.charAt(0).toUpperCase() + industry.slice(1)}
             </button>
@@ -343,7 +340,7 @@ export default function SolutionsPage() {
         {/* Industry Overview */}
         <div className="mb-16">
           <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700">
-            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold mb-4 text-brand-gradient">
               {industries[activeIndustry].title}
             </h2>
             <p className="text-gray-300 mb-6">{industries[activeIndustry].description}</p>
@@ -366,7 +363,7 @@ export default function SolutionsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {industries[activeIndustry].solutions.map((solution, index) => (
             <div key={index} className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-colors duration-300">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+              <h3 className="text-2xl font-bold mb-4 text-brand-gradient">
                 {solution.title}
               </h3>
               <p className="text-gray-300 mb-6">{solution.description}</p>

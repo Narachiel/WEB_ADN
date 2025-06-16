@@ -49,15 +49,15 @@ export default function FeatureCard({ title, description, icon }: FeatureCardPro
     >
       <div className="p-8">        {/* Title row with icon */}
         <div className="flex items-center gap-4 mb-4">
-          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] p-2 flex items-center justify-center text-white shadow-lg">
+          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-orange)] p-2 flex items-center justify-center text-white shadow-lg">
             {icon}
           </div>
-          <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]">
+          <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-orange)]">
             {title}
           </h3>
         </div>
         
-        <p className="text-gray-300/90">
+        <p className="text-secondary/90">
           {description}
         </p>
       </div>
