@@ -5,18 +5,23 @@
 :root {
   --background: #0f172a;
   --foreground: #ffffff;
-  --sky-blue: #3b82f6;
-  --sky-blue-dark: #2563eb;
-  --sky-orange: #f97316;
-  --sky-orange-dark: #c2410c;
-  --sky-green: #22c55e;
-  --sky-green-dark: #16a34a;
-  --cyber-grid: rgba(59, 130, 246, 0.1);
-  --glow-blue: rgba(59, 130, 246, 0.5);
-  --glow-orange: rgba(249, 114, 22, 0.5);
-  --matrix-color: rgba(59, 130, 246, 0.15);
-  --particle-color: rgba(59, 130, 246, 0.6);
-  --shield-gradient: linear-gradient(120deg, var(--sky-blue) 0%, var(--sky-orange) 100%);
+  --brand-blue: #4D89FF;
+  --brand-white: #ffffff;
+  --brand-orange: #F87B58;
+  --sky-blue: #4D89FF;
+  --sky-blue-dark: #3B82F6;
+  --sky-white: #ffffff;
+  --sky-orange: #F87B58;
+  --sky-orange-dark: #E85D3D;
+  --cyber-grid: rgba(77, 137, 255, 0.1);
+  --glow-blue: rgba(77, 137, 255, 0.5);
+  --glow-white: rgba(255, 255, 255, 0.5);
+  --glow-orange: rgba(248, 123, 88, 0.5);
+  --matrix-color: rgba(77, 137, 255, 0.15);
+  --particle-color: rgba(77, 137, 255, 0.6);
+  /* Brand gradient with sky blue, white, and orange */
+  --brand-gradient: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-white) 50%, var(--brand-orange) 100%);
+  --shield-gradient: linear-gradient(120deg, var(--sky-blue) 0%, var(--sky-white) 50%, var(--sky-orange) 100%);
 }
 
 /* Gradient Animations */
@@ -93,7 +98,7 @@
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  background-image: linear-gradient(to right, var(--sky-blue), var(--sky-orange));
+  background-image: linear-gradient(to right, var(--sky-blue), var(--sky-white), var(--sky-orange));
 }
 
 .gradient-text-animated {
@@ -101,54 +106,73 @@
   background-clip: text;
   -webkit-background-clip: text;
   animation: gradient-x 15s ease infinite;
-  background-image: linear-gradient(to right, var(--sky-blue), var(--sky-orange), var(--sky-blue));
+  background-image: linear-gradient(to right, var(--sky-blue), var(--sky-white), var(--sky-orange), var(--sky-blue));
 }
 
-/* Gradient Borders */
+/* Brand Gradients */
+.text-brand-gradient {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: var(--brand-gradient);
+}
+
+.bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+
 .gradient-border {
   position: relative;
-  background: linear-gradient(to right, var(--sky-blue), var(--sky-orange));
-  padding: 1px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px;
   border-radius: inherit;
+  background-image: var(--brand-gradient);
 }
 
-.gradient-border-content {
-  background: inherit;
-  border-radius: inherit;
-  height: 100%;
+.glass-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(77, 137, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(248, 123, 88, 0.1) 100%
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Button Styles */
-.btn-gradient {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(to right, var(--sky-blue), var(--sky-orange));
-  background-size: 200% 100%;
-  animation: gradient-x 15s ease infinite;
+.glass-gradient:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(77, 137, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(248, 123, 88, 0.15) 100%
+  );
 }
 
-.btn-gradient:hover {
-  transform: translateY(-2px);
-  transition: transform 0.2s ease;
+.gradient-button {
+  background-image: var(--brand-gradient);
+  transition: all 0.3s ease-in-out;
+  background-size: 200% auto;
 }
 
-.btn-outline-gradient {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(to right, var(--sky-blue), var(--sky-orange));
-  padding: 1px;
-}
-
-.btn-outline-gradient span {
-  display: block;
-  padding: 0.5rem 1.5rem;
-  border-radius: inherit;
-  transition: all 0.3s ease;
-  background: inherit;
-}
-
-.btn-outline-gradient:hover span {
-  background: transparent;
+.gradient-button:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 8px 16px -1px rgba(77, 137, 255, 0.2),
+    0 4px 8px -1px rgba(255, 255, 255, 0.2),
+    0 4px 8px -1px rgba(248, 123, 88, 0.2);
 }
 
 /* Card Styles */
@@ -157,8 +181,9 @@
   overflow: hidden;
   border-radius: 0.75rem;
   background: linear-gradient(45deg, 
-    rgba(59, 130, 246, 0.1),
-    rgba(249, 114, 22, 0.1)
+    rgba(77, 137, 255, 0.1),
+    rgba(255, 255, 255, 0.1),
+    rgba(248, 123, 88, 0.1)
   );
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -172,6 +197,7 @@
   bottom: 0;
   background: linear-gradient(45deg,
     var(--sky-blue),
+    var(--sky-white),
     var(--sky-orange)
   );
   opacity: 0;

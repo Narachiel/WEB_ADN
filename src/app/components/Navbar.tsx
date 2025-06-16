@@ -30,26 +30,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-500 ${
+    <nav      className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? 'py-2 glass-gradient shadow-lg'
+          ? 'py-2 glass-gradient shadow-lg backdrop-blur-lg'
           : 'py-4 bg-transparent'
       }`}
     >
-      {/* Enhanced gradient border */}
-      <div className={`absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500 ${
+      {/* Enhanced gradient border */}        <div className={`absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500 ${
         scrolled ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="absolute inset-0 gradient-primary animate-gradient-x" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] animate-gradient-x" />
       </div>
 
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold gradient-text-animated">
+          {/* Logo */}          <Link href="/" className="flex items-center space-x-2">
+            <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]">
               Ambara Digital Nusantara
             </span>
           </Link>
@@ -62,14 +59,14 @@ export default function Navbar() {
                 href={item.href}
                 className={`relative px-3 py-2 text-sm font-medium transition-all duration-300
                   ${hoveredItem === item.label 
-                    ? 'gradient-text-animated'
+                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]'
                     : 'text-gray-200 hover:text-white'
                   }`}
                 onMouseEnter={() => setHoveredItem(item.label)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
                 {item.label}
-                <div className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform duration-300 gradient-primary ${
+                <div className={`absolute bottom-0 left-0 w-full h-0.5 transition-transform duration-300 bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] ${
                   hoveredItem === item.label ? 'scale-x-100' : 'scale-x-0'
                 }`} />
               </Link>
@@ -110,36 +107,34 @@ export default function Navbar() {
               )}
             </svg>
           </button>
-        </div>
-
-        {/* Mobile menu */}
-        <div
-          className={`md:hidden transition-all duration-300 ${
-            isOpen
-              ? 'opacity-100 translate-y-0 pointer-events-auto'
-              : 'opacity-0 -translate-y-4 pointer-events-none'
-          }`}
-        >
-          <div className="glass-gradient mt-4 p-4 rounded-lg shadow-xl space-y-4">
-            {menuItems.map((item) => (
+        </div>          {/* Mobile menu */}
+          <div
+            className={`md:hidden transition-all duration-300 ${
+              isOpen
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-4 pointer-events-none'
+            }`}
+          >
+            <div className="glass-gradient mt-4 p-4 rounded-lg shadow-xl space-y-4">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block px-4 py-2 text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] hover:opacity-80 transition-opacity"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
               <Link
-                key={item.href}
-                href={item.href}
-                className="block px-4 py-2 text-sm font-medium text-white hover:gradient-text-animated transition-colors"
+                href="/contact"
+                className="block gradient-button px-4 py-2 rounded-lg text-white font-medium text-center"
                 onClick={() => setIsOpen(false)}
               >
-                {item.label}
+                Contact Us
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="block gradient-button px-4 py-2 rounded-lg text-white font-medium text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact Us
-            </Link>
+            </div>
           </div>
-        </div>
       </div>
     </nav>
   );

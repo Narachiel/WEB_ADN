@@ -38,9 +38,8 @@ export default function FeatureCard({ title, description, icon }: FeatureCardPro
   }, []);
 
   return (
-    <div
-      ref={cardRef}
-      className={`group bg-gray-800/50 backdrop-blur-lg rounded-2xl border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 transform ${
+    <div      ref={cardRef}
+      className={`group gradient-card rounded-2xl transition-all duration-500 transform ${
         isVisible
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-10'
@@ -48,18 +47,17 @@ export default function FeatureCard({ title, description, icon }: FeatureCardPro
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="p-8">
-        {/* Title row with icon */}
+      <div className="p-8">        {/* Title row with icon */}
         <div className="flex items-center gap-4 mb-4">
-          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 p-2 flex items-center justify-center text-white">
+          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] p-2 flex items-center justify-center text-white shadow-lg">
             {icon}
           </div>
-          <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 text-transparent bg-clip-text">
+          <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]">
             {title}
           </h3>
         </div>
         
-        <p className="text-gray-300">
+        <p className="text-gray-300/90">
           {description}
         </p>
       </div>

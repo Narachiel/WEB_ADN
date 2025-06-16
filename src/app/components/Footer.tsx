@@ -43,11 +43,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative mt-20">
-      {/* Enhanced gradient background */}
+    <footer className="relative mt-20">      {/* Enhanced gradient background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-800/95 to-gray-900/95" />
-        <div className="absolute inset-0 gradient-primary opacity-[0.03] animate-gradient-y" />
+        <div className="absolute inset-0 section-gradient opacity-[0.03] animate-gradient-y" />
+        <div className="absolute inset-0 cyber-grid opacity-[0.02]" />
+        <div className="absolute inset-0 hex-grid opacity-[0.01]" />
         <div className="absolute inset-0 cyber-grid opacity-[0.02]" />
         <div className="absolute inset-0 hex-grid opacity-[0.01]" />
       </div>
@@ -56,14 +57,13 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto pt-16 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {sections.map((section) => (
-            <div key={section.title} className="space-y-4">
-              <h3 className="gradient-text text-lg font-semibold">{section.title}</h3>
+            <div key={section.title} className="space-y-4">              <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:gradient-text transition-colors duration-300"
+                      className="text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[var(--brand-blue)] hover:via-[var(--brand-white)] hover:to-[var(--brand-orange)] transition-colors duration-300"
                     >
                       {link.name}
                     </Link>

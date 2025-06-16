@@ -16,17 +16,19 @@ export default function Hero({
   useEffect(() => {
     setIsLoaded(true);
   }, []);
-
   return (
-    <div className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="relative min-h-[90vh] overflow-hidden bg-background">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-95" />
+      
       {/* Animated background elements */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        {[...Array(50)].map((_, i) => (
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />        {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-blue-400/20 animate-pulse-slow"
+            className="absolute rounded-full animate-pulse-slow"
             style={{
+              background: `linear-gradient(135deg, rgba(77, 137, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(248, 123, 88, 0.2))`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               width: `${Math.random() * 4 + 2}px`,
@@ -35,21 +37,24 @@ export default function Hero({
             }}
           />
         ))}
-      </div>
-
-      {/* Cybersecurity visual elements */}
+      </div>      {/* Cybersecurity visual elements with brand gradient */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="cyber-lines" />
-        <div className="cyber-glow" />
+        <div className="cyber-lines opacity-20" style={{
+          background: `linear-gradient(135deg, rgba(77, 137, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(248, 123, 88, 0.1))`
+        }} />
+        <div className="cyber-glow" style={{
+          background: `radial-gradient(circle at center, rgba(77, 137, 255, 0.15), rgba(255, 255, 255, 0.1), transparent)`
+        }} />
       </div>
 
       {/* Main content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text content */}
-          <div className="space-y-8">
-            <h1
-              className={`text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--sky-blue)] to-[var(--sky-orange)] animate-slide-up opacity-0 ${
+          {/* Text content with brand gradient */}
+          <div className="space-y-8 relative">
+            {/* Gradient overlay for depth */}
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/50 to-transparent pointer-events-none" />            <h1
+              className={`text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] animate-slide-up opacity-0 ${
                 isLoaded ? "opacity-100" : ""
               }`}
             >
@@ -69,7 +74,7 @@ export default function Hero({
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[var(--sky-blue)] hover:bg-[var(--sky-blue)]/90 transform hover:-translate-y-0.5 transition-all duration-200"
+                className="gradient-button inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white transform hover:-translate-y-0.5 transition-all duration-200"
               >
                 Get Started
                 <svg
@@ -88,7 +93,7 @@ export default function Hero({
               </Link>
               <Link
                 href="/solutions"
-                className="inline-flex items-center px-8 py-3 border-2 border-[var(--sky-blue)] text-base font-medium rounded-md text-[var(--sky-blue)] hover:bg-[var(--sky-blue)]/10 transform hover:-translate-y-0.5 transition-all duration-200"
+                className="gradient-border inline-flex items-center px-8 py-3 text-base font-medium rounded-md text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] hover:bg-gray-900/50 transform hover:-translate-y-0.5 transition-all duration-200"
               >
                 Explore Solutions
               </Link>

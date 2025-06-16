@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="antialiased min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         {/* Enhanced gradient overlay */}
-        <div className="fixed inset-0 bg-gradient-to-br from-sky-blue/5 via-sky-orange/5 to-sky-blue/5 pointer-events-none" />
+        <div className="fixed inset-0 bg-gradient-to-br from-sky-blue/5 via-white/3 to-sky-orange/5 pointer-events-none" />
         
         {/* Cyber Animation Container */}
         <div className="cyber-container">
@@ -38,10 +38,10 @@ export default function RootLayout({
           <div className="cyber-particle gradient-primary-reverse" style={{ top: '70%', left: '20%', animationDelay: '-5s' }} />
 
           {/* Enhanced cyber grid with gradient */}
-          <div className="cyber-grid absolute inset-0 opacity-[0.03] bg-gradient-to-br from-sky-blue/10 to-sky-orange/10" />
+          <div className="cyber-grid absolute inset-0 opacity-[0.03] bg-gradient-to-br from-sky-blue/10 via-white/5 to-sky-orange/10" />
           
           {/* Enhanced hexagonal pattern overlay */}
-          <div className="hex-grid absolute inset-0 opacity-[0.05] bg-gradient-to-tr from-sky-blue/5 to-sky-orange/5" />
+          <div className="hex-grid absolute inset-0 opacity-[0.05] bg-gradient-to-tr from-sky-blue/5 via-white/3 to-sky-orange/5" />
           
           {/* Enhanced scanning effect */}
           <div className="cyber-scan gradient-primary" />
