@@ -1,0 +1,236 @@
+import Hero from './components/Hero';
+import FeatureCard from './components/FeatureCard';
+import CallToAction from './components/CallToAction';
+import Link from 'next/link';
+
+export default function Home() {
+  const services = [
+    {
+      title: "Security Assessment & Audit",
+      description: "Comprehensive evaluation of your security posture through advanced testing methods",
+      features: [
+        "Vulnerability Assessment",
+        "Penetration Testing",
+        "Security Architecture Review",
+        "Compliance Gap Analysis"
+      ]
+    },
+    {
+      title: "Incident Response",
+      description: "24/7 emergency response team ready to handle and mitigate security breaches",
+      features: [
+        "Emergency Response",
+        "Threat Investigation",
+        "Malware Analysis",
+        "Recovery Planning"
+      ]
+    },
+    {
+      title: "Managed Security",
+      description: "Continuous monitoring and management of your security infrastructure",
+      features: [
+        "24/7 Monitoring",
+        "Threat Detection",
+        "Security Updates",
+        "Incident Management"
+      ]
+    }
+  ];
+
+  const solutions = [
+    {
+      title: "Enterprise Security",
+      description: "End-to-end security solutions for large organizations",
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      )
+    },
+    {
+      title: "Cloud Security",
+      description: "Secure your cloud infrastructure and applications",
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        </svg>
+      )
+    },
+    {
+      title: "Data Protection",
+      description: "Comprehensive data security and privacy solutions",
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      )
+    }
+  ];
+
+  return (
+    <>
+      <Hero
+        title="Secure Your Digital Future"
+        description="Indonesia's leading cybersecurity partner, protecting your business with innovative solutions and expert guidance"
+      />
+
+      {/* Key Features */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Why Choose Ambara Digital Nusantara?</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We combine industry expertise with cutting-edge technology to deliver comprehensive cybersecurity solutions
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {solutions.map((solution, index) => (
+              <div key={index} className="text-center p-8 bg-white rounded-lg shadow-lg">
+                <div className="inline-block p-3 bg-[var(--sky-blue)] bg-opacity-10 rounded-lg mb-4">
+                  {solution.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4">{solution.title}</h3>
+                <p className="text-gray-600">{solution.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Our Services</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive cybersecurity services tailored to protect your organization
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <FeatureCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+                link={{
+                  text: "Learn More",
+                  href: `/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="py-20 bg-[var(--sky-blue)] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "500+", label: "Clients Protected" },
+              { number: "15+", label: "Years Experience" },
+              { number: "24/7", label: "Support Available" },
+              { number: "100+", label: "Security Experts" }
+            ].map((stat, index) => (
+              <div key={index} className="p-6">
+                <div className="text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-lg opacity-90">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Industries We Serve</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Tailored security solutions for various sectors
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              "Financial Services",
+              "Healthcare",
+              "Government",
+              "E-commerce",
+              "Manufacturing",
+              "Technology",
+              "Education",
+              "Energy"
+            ].map((industry, index) => (
+              <div key={index} className="text-center p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
+                <h3 className="font-semibold">{industry}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <CallToAction
+        title="Ready to Secure Your Business?"
+        description="Get in touch with our security experts for a free consultation"
+        primaryButton={{
+          text: "Contact Us",
+          href: "/contact"
+        }}
+        secondaryButton={{
+          text: "View Solutions",
+          href: "/solutions"
+        }}
+        background="blue"
+      />
+
+      {/* Latest Insights */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Latest Security Insights</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Stay updated with the latest cybersecurity trends and insights
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Ransomware Prevention Guide",
+                category: "Security Guide",
+                date: "June 10, 2025"
+              },
+              {
+                title: "Cloud Security Best Practices",
+                category: "Cloud Security",
+                date: "June 8, 2025"
+              },
+              {
+                title: "Zero Trust Architecture",
+                category: "Enterprise Security",
+                date: "June 5, 2025"
+              }
+            ].map((post, index) => (
+              <Link
+                key={index}
+                href="/resources"
+                className="block bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="p-6">
+                  <div className="text-sm text-[var(--sky-orange)] mb-2">{post.category}</div>
+                  <h3 className="text-xl font-bold mb-2">{post.title}</h3>
+                  <div className="text-sm text-gray-600">{post.date}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
