@@ -1,0 +1,171 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+
+interface ServiceFeature {
+  title: string;
+  description: string;
+  image: string;
+  features: string[];
+}
+
+interface ServiceCategory {
+  title: string;
+  description: string;
+  services: ServiceFeature[];
+}
+
+interface ServiceCategories {
+  [key: string]: ServiceCategory;
+}
+
+export default function ServicesPage() {
+  const [activeCategory, setActiveCategory] = useState<string>('assessment');
+
+  const serviceCategories: ServiceCategories = {
+    assessment: {
+      title: "Security Assessment",
+      description: "Comprehensive evaluation of your security infrastructure",
+      services: [
+        {
+          title: "Vulnerability Assessment",
+          description: "Systematic review of security weaknesses",
+          image: "/images/vulnerability-assessment.jpg",
+          features: ["Network Scanning", "Risk Analysis", "Security Baseline"]
+        },
+        {
+          title: "Penetration Testing",
+          description: "Advanced security testing and exploitation",
+          image: "/images/penetration-testing.jpg",
+          features: ["Web App Testing", "Network Testing", "Social Engineering"]
+        },
+        {
+          title: "Security Audit",
+          description: "Detailed review of security controls and compliance",
+          image: "/images/security-audit.jpg",
+          features: ["Compliance Check", "Policy Review", "Controls Testing"]
+        }
+      ]
+    },
+    response: {
+      title: "Incident Response",
+      description: "24/7 emergency response and recovery services",
+      services: [
+        {
+          title: "Emergency Response",
+          description: "Immediate response to security incidents",
+          image: "/images/emergency-response.jpg",
+          features: ["24/7 Support", "Rapid Response", "Incident Containment"]
+        },
+        {
+          title: "Digital Forensics",
+          description: "Investigation and evidence collection",
+          image: "/images/digital-forensics.jpg",
+          features: ["Evidence Collection", "Incident Analysis", "Legal Support"]
+        },
+        {
+          title: "Recovery Services",
+          description: "System restoration and hardening",
+          image: "/images/recovery-services.jpg",
+          features: ["Data Recovery", "System Hardening", "Post-Incident Review"]
+        }
+      ]
+    },
+    managed: {
+      title: "Managed Security",
+      description: "Continuous security monitoring and management",
+      services: [
+        {
+          title: "SOC Services",
+          description: "24/7 security operations center",
+          image: "/images/soc-services.jpg",
+          features: ["Threat Monitoring", "Alert Management", "Incident Response"]
+        },
+        {
+          title: "Threat Intelligence",
+          description: "Proactive threat detection and analysis",
+          image: "/images/threat-intelligence.jpg",
+          features: ["Threat Hunting", "Risk Assessment", "Intelligence Reports"]
+        },
+        {
+          title: "Compliance Management",
+          description: "Ongoing compliance monitoring and reporting",
+          image: "/images/compliance-management.jpg",
+          features: ["Policy Management", "Audit Support", "Regular Reports"]
+        }
+      ]
+    }
+  };
+
+  return (
+    <div className="min-h-screen">
+      {/* Header Section */}
+      <div className="elegant-container pt-32 pb-20">
+        <h1 className="text-5xl md:text-6xl font-bold text-center mb-8 gradient-text">
+          Our Services
+        </h1>
+        <p className="text-xl text-center text-dark-blue-100 mb-16 max-w-3xl mx-auto">
+          Comprehensive cybersecurity solutions to protect your business in an evolving threat landscape
+        </p>
+
+        {/* Category Selection */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {Object.entries(serviceCategories).map(([key, category]) => (
+            <button
+              key={key}
+              onClick={() => setActiveCategory(key)}
+              className={`px-6 py-3 rounded-lg transition-all ${
+                activeCategory === key
+                  ? 'bg-[var(--sky-orange)] text-white'
+                  : 'bg-dark-blue-800/50 hover:bg-dark-blue-700/50 text-white/80'
+              }`}
+            >
+              {category.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Services Grid */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            {serviceCategories[activeCategory].title}
+          </h2>
+          <p className="text-xl text-dark-blue-100 mb-12 text-center max-w-3xl mx-auto">
+            {serviceCategories[activeCategory].description}
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceCategories[activeCategory].services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-dark-blue-800/30 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                  <p className="text-dark-blue-100 mb-4">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-dark-blue-200">
+                        <span className="mr-2">•</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

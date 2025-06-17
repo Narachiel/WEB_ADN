@@ -86,33 +86,28 @@ export default function AboutPage() {
     }
   ];
   return (
-    <div className="min-h-screen particle-background">
-      {/* Hero Section */}
-      <div className="py-20 bg-stable-particles">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient">
+    <div className="min-h-screen particle-background">      {/* Hero Section */}
+      <div className="py-20 bg-stable-particles animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient animate-text-glow hover-gradient-shift">
             About Us
           </h1>
-          <p className="text-xl text-secondary max-w-3xl mx-auto">
+          <p className="text-xl text-elegant-white max-w-3xl mx-auto animate-fade-in">
             Leading the way in cybersecurity innovation and excellence
           </p>
         </div>
-      </div>
-
-      {/* Mission Section */}
-      <section className="py-16 bg-stable-subtle-particles">
+      </div>      {/* Mission Section */}
+      <section className="py-16 bg-stable-subtle-particles animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="cyber-card rounded-2xl p-8">              <h2 className="text-3xl font-bold mb-6 text-brand-gradient">
+            <div className="cyber-card rounded-2xl p-8 animate-float-hover hover-lift">              <h2 className="text-3xl font-bold mb-6 text-brand-gradient neon-text-heading animate-text-glow">
                 Our Mission
-              </h2>
-              <div className="space-y-6 text-secondary">
-                <p className="text-lg">
+              </h2>              <div className="space-y-6 text-elegant-white">
+                <p className="text-lg animate-fade-in">
                   To provide world-class cybersecurity solutions that protect organizations from evolving digital threats while enabling their growth and innovation. We believe in a proactive approach to security, where prevention is as crucial as response.
                 </p>
-                <p className="text-lg">
+                <p className="text-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
                   We combine cutting-edge technology with expert knowledge to deliver comprehensive security solutions that meet the unique needs of each client. Our team of security experts works around the clock to ensure our clients' digital assets are protected.
-                </p>                <div className="space-y-4">
+                </p><div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-orange)] p-2 flex items-center justify-center text-white">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,10 +148,10 @@ export default function AboutPage() {
       </section>      {/* Values Section */}
       <section className="py-16 particle-background-minimal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
+          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading">
               Our Core Values
             </h2>
-            <p className="mt-4 text-xl text-secondary">
+            <p className="mt-4 text-xl text-secondary neon-text-subtle">
               The principles that guide everything we do
             </p>
           </div>          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -178,10 +173,10 @@ export default function AboutPage() {
       </section>      {/* Team Section */}
       <section className="py-16 bg-stable-particles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
+          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading">
               Our Leadership Team
             </h2>
-            <p className="mt-4 text-xl text-secondary">
+            <p className="mt-4 text-xl text-secondary neon-text-subtle">
               Meet the experts behind our success
             </p>
           </div>
@@ -212,10 +207,10 @@ export default function AboutPage() {
       </section>      {/* Milestones Section */}
       <section className="py-16 particle-background-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient">
+          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading">
               Our Journey
             </h2>
-            <p className="mt-4 text-xl text-secondary">
+            <p className="mt-4 text-xl text-secondary neon-text-subtle">
               Key milestones in our path to excellence
             </p>
           </div>

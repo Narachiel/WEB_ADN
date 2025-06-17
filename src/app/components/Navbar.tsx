@@ -7,19 +7,52 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
+      // Close mobile menu when scrolling
+      if (isOpen) {
+        setIsOpen(false);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  }, [isOpen]);
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, []);
+  // Close mobile menu when clicking outside and handle body scroll lock
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isOpen && !target.closest('nav')) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleTouchStart = () => {
+      // Prevent accidental menu opening during scroll gestures
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    // Lock/unlock body scroll when mobile menu is open/closed
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('touchstart', handleTouchStart);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleTouchStart);
+    };
+  }, [isOpen]);
 
   const menuItems = [
     { label: 'Services', href: '/services' },
@@ -29,10 +62,9 @@ export default function Navbar() {
     { label: 'About', href: '/about' }
   ];
 
-  return (
-    <nav      className={`fixed w-full z-50 transition-all duration-500 ${
+  return (    <nav      className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? 'py-2 glass-gradient shadow-lg backdrop-blur-lg'
+          ? 'py-2 glass-gradient shadow-lg'
           : 'py-4 bg-transparent'
       }`}
     >
@@ -65,11 +97,10 @@ export default function Navbar() {
             {menuItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
-                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300
+                href={item.href}                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300
                   ${hoveredItem === item.label 
                     ? 'text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)]'
-                    : 'text-gray-200 hover:text-white'
+                    : 'text-gray-200 hover:text-white neon-text-nav'
                   }`}
                 onMouseEnter={() => setHoveredItem(item.label)}
                 onMouseLeave={() => setHoveredItem(null)}
@@ -85,12 +116,18 @@ export default function Navbar() {
             >
               Contact Us
             </Link>
-          </div>
-
-          {/* Mobile menu button */}
+          </div>          {/* Mobile menu button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden gradient-text p-2 rounded-lg hover:bg-white/10 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsOpen(!isOpen);
+            }}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
+            className="md:hidden gradient-text p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20"
+            aria-label="Toggle mobile menu"
           >
             <svg
               className="h-6 w-6"

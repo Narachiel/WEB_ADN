@@ -227,8 +227,7 @@ export default function Footer() {
                   <div className="absolute bottom-0 right-0 w-0 h-px bg-gradient-to-l from-brand-orange to-brand-blue group-hover:w-full transition-all duration-700 delay-100" />
                 </div>
                 
-                <div className="relative z-10">
-                  <h3 className="text-xl font-semibold text-brand-gradient mb-6 flex items-center group-hover:animate-bounce">
+                <div className="relative z-10">                  <h3 className="text-xl font-semibold text-brand-gradient mb-6 flex items-center group-hover:animate-bounce neon-text-accent">
                     <div className="w-1 h-6 bg-gradient-to-b from-brand-blue to-brand-orange rounded-full mr-4 group-hover:animate-pulse group-hover:w-2 transition-all duration-300"></div>
                     <span className="group-hover:text-brand-blue transition-colors duration-300">{section.title}</span>
                   </h3>
@@ -276,7 +275,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse">Contact Us</h3>
+                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent">Contact Us</h3>
               </div>
               <div className="space-y-6">
                 <div className="flex items-center text-secondary hover:text-brand-blue transition-all duration-300 hover:translate-x-2 group/contact">
@@ -310,7 +309,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse">Quick Access</h3>
+                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent">Quick Access</h3>
               </div>
               <div className="space-y-6">
                 <Link href="/contact" className="gradient-outline-button block text-center py-4 px-6 rounded-xl hover:transform hover:scale-110 hover:rotate-2 transition-all duration-300 hover:animate-bounce group/btn">
@@ -350,7 +349,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9-9v18" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse">Connect</h3>
+                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent">Connect</h3>
               </div>
               <div className="space-y-6">
                 <div className="flex space-x-4 justify-center">

@@ -16,7 +16,7 @@ export default function Hero({
   useEffect(() => {
     setIsLoaded(true);
   }, []);  return (
-    <div className="relative min-h-screen overflow-hidden cyber-bg-primary flex flex-col">
+    <div className="relative min-h-screen overflow-hidden cyber-bg-primary flex flex-col scroll-section">
       {/* Enhanced cyber background with improved animations */}
       <div className="absolute inset-0 cyber-grid-bg opacity-40" />
       <div className="absolute inset-0 cyber-matrix-bg opacity-30" />
@@ -65,29 +65,27 @@ export default function Hero({
           background: `radial-gradient(circle at center, rgba(77, 137, 255, 0.15), rgba(255, 255, 255, 0.1), transparent)`
         }} />
       </div>      {/* Main content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex-1 flex items-center">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">          {/* Text content with brand gradient */}
-          <div className="space-y-6 sm:space-y-8 relative">
-            <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] animate-slide-up opacity-0 ${
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 flex-1 flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">          {/* Text content with brand gradient */}
+          <div className="space-y-8 sm:space-y-10 relative order-2 lg:order-1">            <h1
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] animate-elegant-text-reveal neon-text-heading leading-tight ${
                 isLoaded ? "opacity-100" : ""
               }`}
             >
               {title}
             </h1>            <p
-              className={`text-lg sm:text-xl text-secondary leading-relaxed animate-slide-up opacity-0 animate-delay-200 ${
+              className={`text-base sm:text-lg lg:text-xl text-elegant-white leading-relaxed animate-elegant-slide-in-left animate-stagger-2 neon-text-subtle ${
                 isLoaded ? "opacity-100" : ""
               }`}
             >
               {description}
-            </p>
-            <div
-              className={`flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 animate-slide-up opacity-0 animate-delay-300 ${
+            </p>            <div
+              className={`flex flex-col gap-4 sm:flex-row sm:gap-4 animate-elegant-scale-in animate-stagger-3 ${
                 isLoaded ? "opacity-100" : ""
               }`}
             >              <Link
                 href="/contact"
-                className="gradient-primary-button inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white transform hover:-translate-y-0.5 transition-all duration-200"
+                className="gradient-primary-button inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white transform hover-elegant-lift transition-all duration-200 w-full sm:w-auto hover-fun-wiggle"
               >
                 Get Started
                 <svg
@@ -105,7 +103,7 @@ export default function Hero({
                 </svg>
               </Link>              <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-sm sm:text-base font-medium rounded-md border-2 text-white hover:text-gray-200 transform hover:-translate-y-0.5 transition-all duration-200 gradient-outline-button"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-sm sm:text-base font-medium rounded-md border-2 text-white hover:text-gray-200 transform hover-elegant-lift transition-all duration-200 gradient-outline-button w-full sm:w-auto hover-fun-tilt-shake"
               >
                 Explore Solutions
               </Link>
@@ -168,7 +166,7 @@ export default function Hero({
             </div>
           </div>          {/* Visual section with advanced animations */}
           <div
-            className={`relative h-[300px] sm:h-[400px] lg:h-[600px] animate-scale-in opacity-0 animate-delay-400 ${
+            className={`relative h-[400px] sm:h-[500px] lg:h-[600px] animate-scale-in opacity-0 animate-delay-400 order-1 lg:order-2 ${
               isLoaded ? "opacity-100" : ""
             }`}
           >

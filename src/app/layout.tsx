@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from './components/Navbar';
+import DesktopNavbar from './components/DesktopNavbar';
+import MobileNavbar from './components/MobileNavbar';
 import Footer from './components/Footer';
+import SectionScroll from './components/SectionScroll';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,7 +16,11 @@ export const metadata: Metadata = {
   title: "Ambara Digital Nusantara - Cybersecurity Solutions",
   description: "Leading provider of cybersecurity solutions and services in Indonesia",
   keywords: "cybersecurity, security solutions, IT security, Indonesia, enterprise security",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -50,9 +56,15 @@ export default function RootLayout({
           <div className="cyber-shield gradient-primary-reverse animate-gradient-scale" style={{ top: '70%', left: '70%', animationDelay: '-2s' }} />
           <div className="cyber-shield gradient-primary animate-gradient-scale" style={{ top: '20%', left: '80%', animationDelay: '-4s' }} />
         </div>        <div className="relative z-10">
-          <Navbar />
+          <DesktopNavbar />
+          <MobileNavbar />
           <main>{children}</main>
-          <Footer />
+          <Footer /><SectionScroll 
+            sectionSelectors={['section', '.scroll-section', 'main > div']}
+            scrollDuration={6000}
+            mobileScrollDuration={10000}
+            pauseOnHover={true}
+          />
         </div>
       </body>
     </html>

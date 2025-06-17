@@ -95,30 +95,28 @@ export default function CallToAction({
 
       {/* Improved border with brand colors */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--brand-blue)] to-transparent opacity-60" />
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--brand-orange)] to-transparent opacity-60" />
-
-      <div className="relative py-20 z-10">        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center relative">
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--brand-orange)] to-transparent opacity-60" />      <div className="relative py-20 z-10">        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center relative animate-fade-in-up">
             {/* Content with improved styling */}
-            <div className="relative bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-12 hover:border-[var(--brand-blue)]/50 transition-all duration-500">
+            <div className="relative bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-12 hover:border-[var(--brand-blue)]/50 transition-all duration-500 animate-float-hover hover-lift">
               {/* Inner glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-blue)]/5 via-transparent to-[var(--brand-orange)]/5 rounded-3xl" />
               
-              <h2 className="text-4xl font-extrabold sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] mb-6 relative">
+              <h2 className="text-4xl font-extrabold sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] mb-6 relative animate-text-glow hover-gradient-shift">
                 Ready to Secure Your Digital Future?
               </h2>
-              <p className="mt-4 text-xl text-secondary/90 max-w-3xl mx-auto relative">
+              <p className="mt-4 text-xl text-elegant-white max-w-3xl mx-auto relative animate-fade-in">
                 Get in touch with our security experts and discover how we can help protect your business.
-              </p>              <div className="mt-10 flex flex-wrap justify-center gap-6 relative">
+              </p>              <div className="mt-10 flex flex-wrap justify-center gap-6 relative animate-slide-in-up">
                 <a
                   href="/contact"
-                  className="gradient-primary-button px-8 py-4 rounded-lg font-semibold text-white hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                  className="gradient-primary-button px-8 py-4 rounded-lg font-semibold text-white hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover-glow animate-pulse-glow"
                 >
                   Contact Us
                 </a>
                 <a
                   href="/solutions"
-                  className="gradient-outline-button px-8 py-4 rounded-lg font-semibold text-white hover:opacity-80 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                  className="gradient-outline-button px-8 py-4 rounded-lg font-semibold text-white hover:opacity-80 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover-glow animate-pulse-subtle"
                 >
                   Explore Solutions
                 </a>
