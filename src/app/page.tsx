@@ -6,54 +6,212 @@ import ResponsiveCarousel from './components/ResponsiveCarousel';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
-  const features = [
+export default function Home() {  const features = [
     {
       title: "Advanced Threat Protection",
-      description: "Stay ahead of cyber threats with our state-of-the-art security solutions and real-time monitoring.",      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
-        </svg>
+      description: "Stay ahead of cyber threats with our state-of-the-art security solutions and real-time monitoring.",
+      icon: (
+        <div className="relative w-14 h-14 flex items-center justify-center group">
+          {/* Animated shield container */}
+          <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-orange-500/15 to-red-600/20 rounded-xl rotate-45 animate-pulse-glow"></div>
+          <div className="absolute inset-1 bg-gradient-to-br from-red-400/10 to-orange-500/10 rounded-xl rotate-45 animate-spin-slow"></div>
+          
+          {/* Central shield */}
+          <div className="relative z-10 w-10 h-10 bg-gradient-to-br from-red-500/30 to-orange-500/30 rounded-lg flex items-center justify-center backdrop-blur-sm border border-red-400/20">
+            <svg className="w-6 h-6 text-red-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01" />
+            </svg>
+          </div>
+          
+          {/* Scanning lines */}
+          <div className="absolute inset-0 overflow-hidden rounded-xl">
+            <div className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent animate-scan-line"></div>
+          </div>
+          
+          {/* Corner indicators */}
+          <div className="absolute top-0 left-0 w-3 h-3 border-l-2 border-t-2 border-red-400/40 rounded-tl-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 border-r-2 border-t-2 border-red-400/40 rounded-tr-lg"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-l-2 border-b-2 border-red-400/40 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-r-2 border-b-2 border-red-400/40 rounded-br-lg"></div>
+        </div>
       ),
     },
     {
       title: "24/7 Security Operations",
-      description: "Round-the-clock monitoring and incident response to protect your business at all times.",      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
+      description: "Round-the-clock monitoring and incident response to protect your business at all times.",
+      icon: (
+        <div className="relative w-14 h-14 flex items-center justify-center group">
+          {/* Orbiting elements */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-2 border-2 border-blue-400/30 rounded-full animate-orbit-clockwise">
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full animate-ping-slow"></div>
+            </div>
+            <div className="absolute inset-3 border border-blue-300/20 rounded-full animate-orbit-counterclockwise">
+              <div className="absolute -top-0.5 right-1 w-1 h-1 bg-blue-300 rounded-full"></div>
+            </div>
+          </div>
+          
+          {/* Central clock */}
+          <div className="relative z-10 w-10 h-10 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-blue-400/20">
+            <svg className="w-6 h-6 text-blue-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          
+          {/* Time indicators */}
+          <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-2 bg-blue-400/60"></div>
+          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-2 bg-blue-400/60"></div>
+          <div className="absolute left-1 top-1/2 transform -translate-y-1/2 w-2 h-0.5 bg-blue-400/60"></div>
+          <div className="absolute right-1 top-1/2 transform -translate-y-1/2 w-2 h-0.5 bg-blue-400/60"></div>
+          
+          {/* Digital display */}
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-mono text-blue-300 bg-gray-900/80 px-1 rounded">24/7</div>
+        </div>
       ),
     },
     {
       title: "Compliance & Governance",
-      description: "Meet industry regulations and standards with our comprehensive compliance solutions.",      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
+      description: "Meet industry regulations and standards with our comprehensive compliance solutions.",
+      icon: (
+        <div className="relative w-14 h-14 flex items-center justify-center group">
+          {/* Document background */}
+          <div className="absolute inset-1 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-lg border border-green-400/20">
+            {/* Document lines */}
+            <div className="absolute h-0.5 w-6 bg-green-400/30 top-2 left-2 rounded"></div>
+            <div className="absolute h-0.5 w-4 bg-green-400/30 top-3.5 left-2 rounded"></div>
+            <div className="absolute h-0.5 w-5 bg-green-400/30 top-5 left-2 rounded"></div>
+            <div className="absolute h-0.5 w-3 bg-green-400/30 top-6.5 left-2 rounded"></div>
+          </div>
+          
+          {/* Certificate seal */}
+          <div className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-br from-emerald-500/40 to-green-600/40 rounded-full flex items-center justify-center border-2 border-green-400/30 animate-pulse-glow-fast">
+            <svg className="w-4 h-4 text-emerald-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          
+          {/* Compliance badges */}
+          <div className="absolute top-0 left-0 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500/40 to-indigo-500/40 flex items-center justify-center text-white text-[8px] font-bold border border-blue-400/30">
+            ISO
+          </div>
+          <div className="absolute top-0 right-2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500/40 to-pink-500/40 flex items-center justify-center text-white text-[8px] font-bold border border-purple-400/30">
+            SOC
+          </div>
+          
+          {/* Verification lines */}
+          <div className="absolute inset-0 overflow-hidden rounded-lg">
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400/50 to-transparent animate-dash-offset"></div>
+          </div>
+        </div>
       ),
     },
     {
       title: "Cloud Security",
-      description: "Secure your cloud infrastructure with our specialized cloud security solutions and best practices.",      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-        </svg>
+      description: "Secure your cloud infrastructure with our specialized cloud security solutions and best practices.",
+      icon: (
+        <div className="relative w-14 h-14 flex items-center justify-center group">
+          {/* Cloud layers */}
+          <div className="absolute inset-2 bg-gradient-to-br from-sky-500/20 to-blue-500/20 rounded-2xl"></div>
+          <div className="absolute inset-3 bg-gradient-to-br from-sky-400/15 to-blue-400/15 rounded-xl animate-float-mini"></div>
+          
+          {/* Main cloud */}
+          <div className="relative z-10 w-10 h-6 bg-gradient-to-br from-sky-500/30 to-blue-500/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-sky-400/20">
+            <svg className="w-8 h-5 text-sky-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+          </div>
+          
+          {/* Security shield overlay */}
+          <div className="absolute top-2 right-2 w-6 h-6 bg-gradient-to-br from-green-500/40 to-emerald-500/40 rounded-lg flex items-center justify-center border border-green-400/30 animate-pulse-glow">
+            <svg className="w-3 h-3 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          
+          {/* Data flow particles */}
+          <div className="absolute inset-0 overflow-hidden rounded-2xl">
+            <div className="absolute bottom-4 left-2 w-1 h-1 bg-sky-400 rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
+            <div className="absolute bottom-6 left-4 w-1 h-1 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute bottom-5 right-3 w-1 h-1 bg-sky-300 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+          </div>
+        </div>
       ),
     },
     {
       title: "Security Training",
-      description: "Empower your team with comprehensive security awareness training and phishing simulations.",      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
+      description: "Empower your team with comprehensive security awareness training and phishing simulations.",
+      icon: (
+        <div className="relative w-14 h-14 flex items-center justify-center group">
+          {/* Book base */}
+          <div className="absolute inset-2 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-lg border-l-4 border-amber-400/40">
+            {/* Book pages */}
+            <div className="absolute right-1 top-1 w-6 h-8 bg-gradient-to-br from-yellow-400/10 to-amber-400/10 rounded-r border-r border-amber-300/20"></div>
+            <div className="absolute right-0.5 top-0.5 w-5 h-7 bg-gradient-to-br from-yellow-300/10 to-amber-300/10 rounded-r"></div>
+          </div>
+          
+          {/* Central education icon */}
+          <div className="relative z-10 w-8 h-8 bg-gradient-to-br from-amber-500/30 to-orange-500/30 rounded-lg flex items-center justify-center backdrop-blur-sm border border-amber-400/20">
+            <svg className="w-5 h-5 text-amber-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          
+          {/* Graduation cap */}
+          <div className="absolute -top-1 right-1 w-5 h-3 bg-gradient-to-r from-indigo-500/40 to-purple-500/40 rounded-t-lg border border-indigo-400/30 flex items-center justify-center">
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-400/60 rotate-45 animate-pulse"></div>
+          </div>
+          
+          {/* Knowledge particles */}
+          <div className="absolute inset-0 overflow-hidden rounded-lg">
+            <div className="absolute top-2 left-2 w-1 h-1 bg-amber-400 rounded-full animate-ping" style={{animationDelay: '0s'}}></div>
+            <div className="absolute top-4 right-2 w-1 h-1 bg-orange-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-3 left-3 w-1 h-1 bg-yellow-400 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
+          </div>
+          
+          {/* Progress indicator */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-amber-900/30 rounded-b-lg overflow-hidden">
+            <div className="h-full bg-gradient-to-r from-amber-400 to-orange-400 w-3/4 animate-pulse"></div>
+          </div>
+        </div>
       ),
     },
     {
       title: "Incident Response",
-      description: "Swift and effective incident response with our expert team and battle-tested procedures.",      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
+      description: "Swift and effective incident response with our expert team and battle-tested procedures.",
+      icon: (
+        <div className="relative w-14 h-14 flex items-center justify-center group">
+          {/* Alert background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-yellow-500/15 to-orange-500/20 rounded-xl animate-pulse-glow-fast"></div>
+          <div className="absolute inset-1 bg-gradient-to-br from-red-400/10 to-yellow-400/10 rounded-lg border border-red-400/20"></div>
+          
+          {/* Lightning bolt */}
+          <div className="relative z-10 w-8 h-8 bg-gradient-to-br from-yellow-500/40 to-red-500/40 rounded-lg flex items-center justify-center backdrop-blur-sm border border-yellow-400/30">
+            <svg className="w-5 h-5 text-yellow-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          
+          {/* Alert indicators */}
+          <div className="absolute top-1 right-1 w-3 h-3 bg-red-500/60 rounded-full animate-ping"></div>
+          <div className="absolute bottom-1 left-1 w-3 h-3 bg-orange-500/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+          
+          {/* Response time indicator */}
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-mono text-yellow-300 bg-red-900/80 px-1 rounded animate-pulse">
+            &lt;5min
+          </div>
+          
+          {/* Emergency signals */}
+          <div className="absolute inset-0 overflow-hidden rounded-xl">
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-red-400 to-transparent animate-scan-line"></div>
+            <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent animate-scan-line" style={{animationDelay: '1s'}}></div>
+          </div>
+          
+          {/* Corner warning markers */}
+          <div className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-red-400 rounded-tl-lg animate-pulse"></div>
+          <div className="absolute top-0 right-0 w-2 h-2 border-r-2 border-t-2 border-yellow-400 rounded-tr-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        </div>
       ),
     },
   ];
@@ -164,28 +322,62 @@ export default function Home() {
       readTime: "6 min read"
     }  ];  return (
     <div className="min-h-screen particle-background">
-      <Hero />        {/* Features Section */}
-      <section className="py-20 bg-stable-subtle-particles scroll-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fade-in-up">            <h2 className="text-3xl font-bold sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] neon-text-heading animate-text-glow hover-gradient-shift">
-              Comprehensive Cybersecurity Solutions
-            </h2>            <p className="mt-4 text-lg sm:text-xl text-elegant-white neon-text-subtle animate-fade-in">
-              Protecting your digital assets with cutting-edge technology and expertise
+      <Hero />      {/* Features Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 relative overflow-hidden">
+        {/* Enhanced background effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-orange-900/10"></div>
+        <div className="absolute inset-0 bg-cyber-grid opacity-30"></div>
+        
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400/60 rounded-full animate-float-mini"></div>
+          <div className="absolute top-40 right-20 w-1 h-1 bg-orange-400/60 rounded-full animate-bounce-mini" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-cyan-400/60 rounded-full animate-ping-slow" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-60 right-1/3 w-1 h-1 bg-yellow-400/60 rounded-full animate-float-mini" style={{animationDelay: '1.5s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center animate-elegant-fade-in">
+            <h2 className="text-4xl font-bold sm:text-5xl lg:text-6xl mb-6">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x neon-text-heading">
+                Comprehensive Cybersecurity
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 animate-gradient-x" style={{animationDelay: '0.5s'}}>
+                Solutions
+              </span>
+            </h2>
+            <p className="mt-6 text-xl sm:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed neon-text-subtle">
+              Protecting your digital assets with cutting-edge technology and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-semibold">advanced threat intelligence</span>
             </p>
+            
+            {/* Decorative line */}
+            <div className="mt-8 flex justify-center">
+              <div className="h-1 w-32 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full animate-pulse-glow"></div>
+            </div>
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3 animate-slide-in-up">
+          <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                title={feature.title}
-                description={feature.description}
-                icon={feature.icon}
-              />
+              <div key={index} className={`animate-elegant-fade-in cyber-icon-hover animate-delay-${index + 1}`}>
+                <FeatureCard
+                  title={feature.title}
+                  description={feature.description}
+                  icon={feature.icon}
+                />
+              </div>
             ))}
           </div>
+          
+          {/* Bottom accent */}
+          <div className="mt-16 flex justify-center">
+            <div className="flex space-x-2">
+              <div className="w-2 h-2 bg-blue-500/60 rounded-full animate-ping" style={{animationDelay: '0s'}}></div>
+              <div className="w-2 h-2 bg-cyan-500/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+              <div className="w-2 h-2 bg-orange-500/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+            </div>
+          </div>
         </div>
-      </section>      {/* Statistics Section */}
+      </section>{/* Statistics Section */}
       <section className="py-20 particle-background-minimal animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="cyber-card rounded-2xl p-8 animate-float-hover hover-lift">

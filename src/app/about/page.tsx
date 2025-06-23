@@ -48,9 +48,52 @@ export default function AboutPage() {
     {
       title: "Integrity",
       description: "Operating with transparency and honesty in all our business dealings. We build trust through clear communication and ethical practices in everything we do.",      icon: (
-        <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
+        <div className="relative w-16 h-16 flex items-center justify-center">
+          {/* Geometric pattern background */}
+          <div className="absolute inset-0 rounded-md bg-gradient-to-br from-[var(--sky-blue)]/10 to-[var(--sky-orange)]/5 overflow-hidden">
+            {/* Shield background pattern */}
+            <div className="absolute inset-0" style={{
+              background: `repeating-linear-gradient(
+                45deg,
+                rgba(77, 137, 255, 0.08),
+                rgba(77, 137, 255, 0.08) 2px,
+                transparent 2px,
+                transparent 10px
+              )`
+            }}></div>
+          </div>
+          
+          {/* Layered shield effects */}
+          <div className="relative w-14 h-14 flex items-center justify-center">
+            {/* Rotating rim */}
+            <div className="absolute inset-0 rounded-full border border-[var(--sky-blue)]/30 animate-spin-slow"></div>
+            
+            {/* Main shield container */}
+            <div className="relative w-12 h-12 cyber-shield-premium quantum-shield flex items-center justify-center rounded-md transform rotate-45">
+              {/* Inner geometric elements */}
+              <div className="absolute inset-1 transform -rotate-45 circuit-shield opacity-40"></div>
+              
+              {/* Shield icon */}
+              <svg className="w-8 h-8 text-white shield-glow-blue transform -rotate-45" 
+                   fill="none" 
+                   stroke="currentColor" 
+                   viewBox="0 0 24 24">
+                <path strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="2" 
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              
+              {/* Core energy pulse */}
+              <div className="shield-core absolute inset-2 rounded-full"></div>
+            </div>
+          </div>
+          
+          {/* Corner accent elements */}
+          <div className="absolute w-1.5 h-1.5 rounded-full bg-[var(--sky-blue)]/70 top-0 right-0 animate-pulse-slow"></div>
+          <div className="absolute w-1.5 h-1.5 rounded-full bg-[var(--sky-orange)]/70 bottom-0 left-0 animate-pulse-slow" 
+               style={{ animationDelay: "-1.5s" }}></div>
+        </div>
       )
     },
     {
@@ -88,7 +131,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen particle-background">      {/* Hero Section */}
       <div className="py-20 bg-stable-particles animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient animate-text-glow hover-gradient-shift">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">          <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl mb-4 text-brand-gradient animate-text-glow hover-gradient-shift neon-header-brand">
             About Us
           </h1>
           <p className="text-xl text-elegant-white max-w-3xl mx-auto animate-fade-in">
@@ -99,7 +142,7 @@ export default function AboutPage() {
       <section className="py-16 bg-stable-subtle-particles animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="cyber-card rounded-2xl p-8 animate-float-hover hover-lift">              <h2 className="text-3xl font-bold mb-6 text-brand-gradient neon-text-heading animate-text-glow">
+            <div className="cyber-card rounded-2xl p-8 animate-float-hover hover-lift">              <h2 className="text-3xl font-bold mb-6 text-brand-gradient neon-text-heading neon-header-brand animate-text-glow">
                 Our Mission
               </h2>              <div className="space-y-6 text-elegant-white">
                 <p className="text-lg animate-fade-in">
@@ -147,8 +190,7 @@ export default function AboutPage() {
         </div>
       </section>      {/* Values Section */}
       <section className="py-16 particle-background-minimal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading neon-header-outline">
               Our Core Values
             </h2>
             <p className="mt-4 text-xl text-secondary neon-text-subtle">
@@ -172,8 +214,7 @@ export default function AboutPage() {
         </div>
       </section>      {/* Team Section */}
       <section className="py-16 bg-stable-particles">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading neon-header-outline">
               Our Leadership Team
             </h2>
             <p className="mt-4 text-xl text-secondary neon-text-subtle">
@@ -206,8 +247,7 @@ export default function AboutPage() {
         </div>
       </section>      {/* Milestones Section */}
       <section className="py-16 particle-background-subtle">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          <div className="text-center mb-12">            <h2 className="text-3xl font-bold sm:text-4xl text-brand-gradient neon-text-heading neon-header-outline">
               Our Journey
             </h2>
             <p className="mt-4 text-xl text-secondary neon-text-subtle">

@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-
+  const [animationStyles, setAnimationStyles] = useState<any[]>([]);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -17,6 +17,66 @@ export default function Footer() {
 
     const footer = document.getElementById('animated-footer');
     if (footer) observer.observe(footer);
+
+    // Generate animation styles on client side only
+    const generateRandomStyles = () => {
+      const styles = [];
+      
+      // Wave particles (8 items)
+      for (let i = 0; i < 8; i++) {
+        styles.push({
+          type: 'wave',
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 20}s`,
+          animationDuration: `${12 + Math.random() * 8}s`,
+        });
+      }
+      
+      // Flowing diamonds (5 items)
+      for (let i = 0; i < 5; i++) {
+        styles.push({
+          type: 'diamond',
+          left: `${20 + Math.random() * 60}%`,
+          top: `${20 + Math.random() * 60}%`,
+          animationDelay: `${i * 8}s`,
+        });
+      }
+      
+      // Morphing circles (4 items)
+      for (let i = 0; i < 4; i++) {
+        styles.push({
+          type: 'morph',
+          left: `${25 + Math.random() * 50}%`,
+          top: `${25 + Math.random() * 50}%`,
+          animationDelay: `${i * 10}s`,
+        });
+      }
+      
+      // Breathing nodes (6 items)
+      for (let i = 0; i < 6; i++) {
+        styles.push({
+          type: 'node',
+          left: `${15 + Math.random() * 70}%`,
+          top: `${15 + Math.random() * 70}%`,
+          animationDelay: `${i * 4}s`,
+        });
+      }
+      
+      // Sparkle effects (8 items)
+      for (let i = 0; i < 8; i++) {
+        styles.push({
+          type: 'sparkle',
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${i * 0.2}s`,
+        });
+      }
+      
+      return styles;
+    };
+    
+    setAnimationStyles(generateRandomStyles());
 
     return () => observer.disconnect();
   }, []);
@@ -85,46 +145,46 @@ export default function Footer() {
         }} />        {/* New wave-based floating particles */}
         <div className="absolute inset-0" aria-hidden="true">
           {/* Gentle wave particles */}
-          {[...Array(8)].map((_, i) => (
+          {animationStyles.filter(style => style.type === 'wave').map((style, i) => (
             <div
               key={`wave-${i}`}
               className="absolute w-3 h-3 bg-brand-blue rounded-full animate-wave-float opacity-30"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 20}s`,
-                animationDuration: `${12 + Math.random() * 8}s`,
+                left: style.left,
+                top: style.top,
+                animationDelay: style.animationDelay,
+                animationDuration: style.animationDuration,
               }}
             />
-          ))}        </div>{/* Flowing geometric patterns */}
+          ))}        </div>        {/* Flowing geometric patterns */}
         <div className="absolute inset-0" aria-hidden="true">
           {/* Flowing diamonds */}
-          {[...Array(5)].map((_, i) => (
+          {animationStyles.filter(style => style.type === 'diamond').map((style, i) => (
             <div
               key={`diamond-${i}`}
               className="absolute w-6 h-6 border border-brand-blue/20 animate-flow-diagonal opacity-25"
               style={{
-                left: `${20 + Math.random() * 60}%`,
-                top: `${20 + Math.random() * 60}%`,
-                animationDelay: `${i * 8}s`,
+                left: style.left,
+                top: style.top,
+                animationDelay: style.animationDelay,
                 clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
               }}
             />
           ))}
           
           {/* Morphing circles */}
-          {[...Array(4)].map((_, i) => (
+          {animationStyles.filter(style => style.type === 'morph').map((style, i) => (
             <div
               key={`morph-${i}`}
               className="absolute w-8 h-8 border border-brand-orange/15 rounded-full animate-morph opacity-20"
               style={{
-                left: `${25 + Math.random() * 50}%`,
-                top: `${25 + Math.random() * 50}%`,
-                animationDelay: `${i * 10}s`,
+                left: style.left,
+                top: style.top,
+                animationDelay: style.animationDelay,
               }}
             />
           ))}
-        </div>        {/* Ripple mouse follower glow */}
+        </div>{/* Ripple mouse follower glow */}
         <div
           className="absolute w-80 h-80 bg-gradient-radial from-brand-blue/12 via-brand-blue/4 to-transparent rounded-full pointer-events-none transition-all duration-2000 ease-out animate-ripple"
           style={{
@@ -151,18 +211,16 @@ export default function Footer() {
           <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent animate-flow-curve-reverse" />
           
           {/* Vertical flowing accent */}
-          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-brand-white/15 to-transparent animate-flow-vertical" />        </div>
-
-        {/* Breathing light nodes */}
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-brand-white/15 to-transparent animate-flow-vertical" />        </div>        {/* Breathing light nodes */}
         <div className="absolute inset-0" aria-hidden="true">
-          {[...Array(6)].map((_, i) => (
+          {animationStyles.filter(style => style.type === 'node').map((style, i) => (
             <div
               key={`node-${i}`}
               className="absolute w-3 h-3 rounded-full bg-brand-blue/25 animate-breathe"
               style={{
-                left: `${15 + Math.random() * 70}%`,
-                top: `${15 + Math.random() * 70}%`,
-                animationDelay: `${i * 4}s`,
+                left: style.left,
+                top: style.top,
+                animationDelay: style.animationDelay,
               }}
             >
               <div className="absolute inset-0 rounded-full bg-brand-blue/40 animate-pulse-soft" />
@@ -175,11 +233,45 @@ export default function Footer() {
           {/* Enhanced elegant header section with animations */}
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-brand-blue/20 to-brand-orange/20 border border-brand-blue/30 mb-6 hover:animate-pulse transition-all duration-500 hover:scale-110">
-            <svg className="w-10 h-10 text-brand-gradient animate-float" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+        }`}>          <div className="relative inline-flex items-center justify-center w-28 h-28 mb-8 hover:scale-110 transition-all duration-700 cursor-pointer">
+            {/* Layered shield design with rotating elements */}
+            <div className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-br from-brand-blue/10 via-brand-orange/5 to-brand-blue/10 border border-brand-blue/20 animate-spin-slow"></div>
+            
+            {/* Diamond shape overlay */}
+            <div className="absolute inset-2 cyber-shield-premium" style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-brand-orange/5 animate-pulse-slow"></div>
+            </div>
+            
+            {/* Inner shield container */}
+            <div className="relative w-20 h-20 rounded-full bg-gradient-conic from-brand-blue/20 via-brand-orange/10 to-brand-blue/20 flex items-center justify-center">
+              {/* Circuit pattern overlay */}
+              <div className="absolute inset-0 rounded-full circuit-shield opacity-50"></div>
+              
+              {/* Central quantum shield */}
+              <div className="relative w-16 h-16 quantum-shield fortress-shield flex items-center justify-center">
+                {/* Shield icon with glow effect */}
+                <svg className="w-10 h-10 text-white animate-float shield-glow-multi filter drop-shadow-lg" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     viewBox="0 0 24 24"
+                     style={{ filter: 'drop-shadow(0 0 8px rgba(77, 137, 255, 0.6))' }}>
+                  <path strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2" 
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                
+                {/* Core energy element */}
+                <div className="absolute inset-0 rounded-full bg-gradient-radial from-brand-blue/10 to-transparent holo-shield opacity-70"></div>
+                <div className="shield-core absolute inset-4 rounded-full"></div>
+              </div>
+            </div>
+            
+            {/* Orbiting particles */}
+            <div className="absolute w-2 h-2 rounded-full bg-brand-blue/80 animate-orbit" 
+                 style={{ top: '5%', left: '50%', animationDuration: '4s' }}></div>
+            <div className="absolute w-1.5 h-1.5 rounded-full bg-brand-orange/80 animate-orbit-reverse" 
+                 style={{ bottom: '5%', left: '50%', animationDuration: '5s' }}></div>
           </div>
           <h2 className="text-4xl font-bold text-brand-gradient mb-4 animate-text-shimmer bg-gradient-to-r from-brand-blue via-brand-white to-brand-orange bg-clip-text text-transparent bg-size-200 hover:animate-text-wave">
             Ambara Digital Nusantara
@@ -227,7 +319,7 @@ export default function Footer() {
                   <div className="absolute bottom-0 right-0 w-0 h-px bg-gradient-to-l from-brand-orange to-brand-blue group-hover:w-full transition-all duration-700 delay-100" />
                 </div>
                 
-                <div className="relative z-10">                  <h3 className="text-xl font-semibold text-brand-gradient mb-6 flex items-center group-hover:animate-bounce neon-text-accent">
+                <div className="relative z-10">                  <h3 className="text-xl font-semibold text-brand-gradient mb-6 flex items-center group-hover:animate-bounce neon-text-accent neon-header-outline">
                     <div className="w-1 h-6 bg-gradient-to-b from-brand-blue to-brand-orange rounded-full mr-4 group-hover:animate-pulse group-hover:w-2 transition-all duration-300"></div>
                     <span className="group-hover:text-brand-blue transition-colors duration-300">{section.title}</span>
                   </h3>
@@ -275,7 +367,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent">Contact Us</h3>
+                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent neon-header-outline">Contact Us</h3>
               </div>
               <div className="space-y-6">
                 <div className="flex items-center text-secondary hover:text-brand-blue transition-all duration-300 hover:translate-x-2 group/contact">
@@ -309,7 +401,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent">Quick Access</h3>
+                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent neon-header-outline">Quick Access</h3>
               </div>
               <div className="space-y-6">
                 <Link href="/contact" className="gradient-outline-button block text-center py-4 px-6 rounded-xl hover:transform hover:scale-110 hover:rotate-2 transition-all duration-300 hover:animate-bounce group/btn">
@@ -327,16 +419,15 @@ export default function Footer() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ transitionDelay: '1000ms' }}>
-            {/* Sparkle animation background */}
-            <div className="absolute inset-0">
-              {[...Array(8)].map((_, i) => (
+            {/* Sparkle animation background */}            <div className="absolute inset-0">
+              {animationStyles.filter(style => style.type === 'sparkle').map((style, i) => (
                 <div
                   key={i}
                   className="absolute w-1 h-1 bg-brand-white rounded-full opacity-0 group-hover:opacity-100 animate-sparkle"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${i * 0.2}s`,
+                    left: style.left,
+                    top: style.top,
+                    animationDelay: style.animationDelay,
                   }}
                 />
               ))}
@@ -349,7 +440,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9-9v18" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent">Connect</h3>
+                <h3 className="text-xl font-semibold text-brand-gradient group-hover:animate-pulse neon-text-accent neon-header-outline">Connect</h3>
               </div>
               <div className="space-y-6">
                 <div className="flex space-x-4 justify-center">
@@ -394,21 +485,19 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 relative z-10">
-            <div className="text-center lg:text-left group-hover:animate-pulse">
-              <p className="text-secondary mb-2 transition-colors duration-300 group-hover:text-brand-blue">
+            <div className="text-center lg:text-left group-hover:animate-pulse">              <p className="small-text-enhanced mb-2 transition-colors duration-300 group-hover:text-brand-blue">
                 © {currentYear} Ambara Digital Nusantara. All rights reserved.
-              </p>              <p className="text-muted text-sm transition-colors duration-300 group-hover:text-secondary">
+              </p>              <p className="compliance-badge-text transition-colors duration-300 group-hover:text-secondary">
                 Secured by enterprise-grade encryption • ISO 27001 Certified • SOC 2 Compliant • PCI-DSS Compliant
               </p>
-            </div>
-            <div className="flex items-center space-x-8 text-sm">
+            </div>            <div className="flex items-center space-x-8 text-sm">
               <div className="flex items-center space-x-2 hover:transform hover:scale-110 transition-all duration-300 group/status">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-ping group-hover/status:animate-bounce"></div>
-                <span className="text-green-400 group-hover/status:animate-pulse">System Operational</span>
+                <span className="badge-text-high-contrast text-green-400 group-hover/status:animate-pulse">System Operational</span>
               </div>
               <div className="flex items-center space-x-2 hover:transform hover:scale-110 transition-all duration-300 group/status">
                 <div className="w-3 h-3 bg-brand-blue rounded-full animate-ping group-hover/status:animate-bounce"></div>
-                <span className="text-brand-blue group-hover/status:animate-pulse">Security Maximum</span>
+                <span className="badge-text-high-contrast text-brand-blue group-hover/status:animate-pulse">Security Maximum</span>
               </div>
             </div>
           </div>

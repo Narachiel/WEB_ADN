@@ -102,7 +102,7 @@ export default function CallToAction({
               {/* Inner glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-blue)]/5 via-transparent to-[var(--brand-orange)]/5 rounded-3xl" />
               
-              <h2 className="text-4xl font-extrabold sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] mb-6 relative animate-text-glow hover-gradient-shift">
+              <h2 className="text-4xl font-extrabold sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-white)] to-[var(--brand-orange)] mb-6 relative animate-text-glow hover-gradient-shift neon-header-brand">
                 Ready to Secure Your Digital Future?
               </h2>
               <p className="mt-4 text-xl text-elegant-white max-w-3xl mx-auto relative animate-fade-in">
